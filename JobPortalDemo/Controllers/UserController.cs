@@ -38,7 +38,7 @@ namespace JobPortalDemo.Controllers
         {
             var userdto = _context.Users.FirstOrDefault(x => x.Email == logindto.Email && x.Password == logindto.Password);
             var roleid = _context.UserRoles.FirstOrDefault(x => x.UserId == userdto.Id).RoleId;
-            var Name = _context.Roles.FirstOrDefault(x => x.Id == roleid).Name;
+            var RoleName = _context.Roles.FirstOrDefault(x => x.Id == roleid).Name;
 
             if (userdto != null)
             {
@@ -47,14 +47,17 @@ namespace JobPortalDemo.Controllers
                 var claims = new[]
                 {
                     new Claim(ClaimTypes.NameIdentifier,userdto.Email),
-                    new Claim(ClaimTypes.Role,Name)
+                    new Claim(ClaimTypes.Role,RoleName)
 
                 };
                 var token = new JwtSecurityToken(_config["Jwt:Issuer"],
                     _config["Jwt:Audience"],
                         claims, expires: DateTime.Now.AddMinutes(15),
                         signingCredentials: credentials);
-                return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+                LoginResponse loginresponse = new LoginResponse();
+                loginresponse.Token = new JwtSecurityTokenHandler().WriteToken(token);
+                loginresponse.Role=RoleName;
+                return Ok(loginresponse);
 
 
             }

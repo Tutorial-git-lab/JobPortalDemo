@@ -24,7 +24,7 @@ namespace JobPortalDemo.Controllers
 
         public IActionResult GetAllUserRoles()
         {
-            return Ok(_userrole.GetAllUserRoles);
+           return Ok(_userrole.GetAllUserRoles());
         }
 
         [Route("GetUserRoleById")]

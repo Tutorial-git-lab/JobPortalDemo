@@ -68,9 +68,11 @@ namespace JobPortalDemo.Controllers
 
         [HttpPost]
 
-        public IActionResult AssignRole(RoleAssign roleAssign)
+        public IActionResult AssignRole(RoleAssignDTO roleassigndto)
         {
-            return Ok();
+            var response = _user.AssignRole(roleassigndto);
+
+            return Ok(response);
         }
 
         [Route("GetAllUsers")]

@@ -47,11 +47,11 @@ namespace JobPortalDemo.Data.Repository
         {
             try
             {
-                RoleAssign roleAssign = new RoleAssign();
-                roleAssign.Id = roleAssign.Id;
-                roleAssign.UserId = roleassigndto.UserId;
-                roleAssign.RoleId = roleassigndto.RoleId;
-                _context.RoleAssigns.Add(roleAssign);
+                RoleAssign roleassign = new RoleAssign();
+                roleassign.Id=roleassigndto.Id;
+                roleassign.UserId = roleassigndto.UserId;
+                roleassign.RoleId = roleassigndto.RoleId;
+                _context.RoleAssigns.Add(roleassign);
                 _context.SaveChanges();
                 return true;
             }

@@ -19,6 +19,28 @@ namespace JobPortalDemo.Data
 
         public DbSet<RoleAssign> RoleAssigns { get; set; }
 
+        public DbSet<JobSeekerReport> JobSeekersReports { get; set;}
+
+        public DbSet<CompanyReport> CompanyReports { get; set; }
+
+        public DbSet<FeedBackReport> FeedBackReports { get; set; }
+
+        public DbSet<CompanyAccount> CompanyAccounts { get; set; }
+
+        public DbSet<CompanyPassword> CompanyPasswords { get; set;}
+
+        public DbSet<JobSeekerAccount> JobSeekersAccounts { get; set;}
+
+        public DbSet<JobSeekerPassword> JobSeekersPasswords { get; set;}
+
+        public DbSet<PostedJob> PostedJobs { get; set; }
+
+        public DbSet<PostNewJob> PostNewJobs { get; set; }
+
+        public DbSet<Contact>Contacts { get; set; }
+
+
+
         
 
 

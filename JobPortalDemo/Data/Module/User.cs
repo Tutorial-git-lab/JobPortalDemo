@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-
-namespace JobPortalDemo.Data.Module
+﻿namespace JobPortalDemo.Data.Module
 {
     public class User
     {

@@ -36,8 +36,9 @@ builder.Services.AddCors(options =>
         {
             policy.WithOrigins("http://localhost:6140")
                 .AllowAnyHeader()
-                .AllowAnyMethod();
-        });
+                .AllowAnyMethod()
+                .AllowCredentials();
+});
 });
 // Add services to the container.
 
@@ -50,7 +51,16 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IUser,UserRepository> ();
 builder.Services.AddScoped<IRole,RoleRepository> ();
 builder.Services.AddScoped<IUserRole,UserRoleRepository> ();
-
+builder.Services.AddScoped<ICompanyAccount,CompanyAccountRepository> ();
+builder.Services.AddScoped<ICompanyPassword,CompanyPasswordRepository> ();
+builder.Services.AddScoped<IJobSeekerAccount,JobSeekerAccountRepository> ();
+builder.Services.AddScoped<IJobSeekerPassword,JobSeekerPasswordRepository> ();
+builder.Services.AddScoped<IPostedJob,PostedJobRepository>();
+builder.Services.AddScoped<IPostNewJob,PostNewJobRepository>();
+builder.Services.AddScoped<IJobSeekerReport,JobSeekerReportRepository> ();
+builder.Services.AddScoped<ICompanyReport,CompanyReportRepository> ();
+builder.Services.AddScoped<IFeedBackReport,FeedBackReportRepository> ();
+builder.Services.AddScoped<IContact,ContactRepository> ();
 
 var app = builder.Build();
 
